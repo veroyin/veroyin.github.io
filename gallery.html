@@ -1,0 +1,186 @@
+<html>
+  <!--document info-->
+  <head>
+      <title>Gallery</title>
+      <script src="https://code.jquery.com/jquery-3.0.0.min.js"></script>
+      <link rel="stylesheet"
+        type="text/css"
+        href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css"/>
+      <link rel="stylesheet"
+        type="text/css"
+        href="styles.css"/>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row body_home">
+        <a href="vero_homepage.html">
+        <div class="col-md-3 home_nav">
+          Veronica, Yin Gantian
+        </div></a>
+        <div class="col-md-9 text-right">
+          <a href="gallery.html">Gallery</a>
+          &nbsp;
+          <a href="booklist.html">Booklist</a>
+          &nbsp;
+          <a href="contact.html">Keep in touch</a>
+        </div>
+      </div>
+    </div>
+    <hr/>
+
+<div class="container block_responsive">
+  <div class="row">
+    <div class="col-md-6 well gallery_block">
+      <img src="window.jpeg" class="image"
+          width=95%
+          alt="the window"/>
+    </div>
+    <div class="col-md-6 well gallery_block">
+      <div class="content text-left dscp_responsive">
+        <p>I spotted this lovely window for takeaway in Haji Lane near the Sultan Mosque in Singapore. I went to the mosque on Hari Raya but they were closed for holiday. But look what I've found!</p>
+        <p class="location">@Haji Lane, SG</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 well gallery_block">
+      <div class="content text-left dscp_responsive">
+        <p>Me standing in front of the mosque, with the pink scarf covering my head and arms, praying.</p>
+        <p class="location">@Masjid Sultan, 715 North Bridge Rd, SG</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 well gallery_block">
+
+      <img src="mosque.jpeg" class="image"
+        width=95%
+        alt="Sultan Mosque"
+      />
+    </div>
+    <div class="col-md-6 well gallery_block">
+      <img src="dgsg.jpeg" class="image"
+          width=95%
+          alt="Digital Garage Singapore"/>
+    </div>
+    <div class="col-md-6 well gallery_block">
+      <div class="content text-left dscp_responsive">
+        <p>My current office used to be an art gallery. Many people knocked the door asking whether it was a musuem or coffee shop. People here are super nice and creative.</p>
+        <p class="location">@The Garage, 38 Armenian Street, SG</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 well gallery_block">
+      <div class="content text-left dscp_responsive">
+        <p>Kaya Toast at Ya Kun. Kaya is a fantastic mixture of coconut, milk and eggs. I was recommended to this beautiful thing for several times by my friends.</p>
+        <p class="location">@Ya Kun Kaya Toast, SG</p>
+      </div>
+    </div>
+
+    <div class="col-md-6 well gallery_block">
+      <img src="kaya_toast.jpg" class="image"
+        width=95%
+        alt="Kaya Toast"
+      />
+    </div>
+
+    <div class="col-md-6 well gallery_block">
+      <img src="dawn.jpeg" class="image" id="bigImage"
+          width=95%
+          alt="dawn at 6am"/>
+    </div>
+    <div class="col-md-6 well gallery_block">
+      <div class="content text-left dscp_responsive">
+        <p>There are some more photos that I would like to share with you. Click the slideshow bar below and have a try.</p>
+        <p class="location">@Guess where I was</p>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+
+
+<!--Below is the code for slideshow bar
+I tried to align them as a slideshow-->
+
+<div class="container slideshow">
+  <div class="row">
+    <div class="col-md-1">
+      <button class="border btn center-block" id="backward">&lt;</button>
+    </div>
+
+    <div class="col-md-2">
+      <img src="dawn.jpeg" id="image1"
+        class="thumb_pic center-block"
+        alt="Dawn of Singapore at 6am"
+      />
+    </div>
+    <div class="col-md-2">
+      <img src="office.jpeg" id="image2"
+        class="thumb_pic center-block"
+        alt="Ground floor of our office"
+      />
+    </div>
+    <div class="col-md-2">
+      <img src="armenian_st.jpeg" id="image3"
+        class="thumb_pic center-block"
+        alt="crossroads at Armenian Street"
+      />
+    </div>
+    <div class="col-md-2">
+      <img src="hotpot.jpeg" id="image4"
+        class="thumb_pic center-block"
+        alt="Hotpot back in Beijing"
+      />
+    </div>
+    <div class="col-md-2">
+      <img src="marina_evening.jpeg" id="image5"
+      class="thumb_pic center-block"
+        alt="By Marina Bay in the evening"
+      />
+    </div>
+
+    <div class="col-md-1">
+      <button class="border btn center-block" id="forward">&gt;</button>
+    </div>
+  </div>
+</div>
+<!--Below is how the slideshow moves-->
+<script type="text/javascript">
+
+var paused=false;
+
+$(".thumb_pic").click(function(){
+  $("#bigImage").attr('src',
+  $(this).attr('src'));
+  });
+
+  var counter=1;
+    $("#forward").click(function(){
+      counter=counter+1;
+      if(counter>5){
+        counter=1;
+      };
+      $("#image"+counter).click();
+    });
+
+    $("#backward").click(function(){
+      counter=counter-1;
+      if(counter<1){
+        counter=5;
+      };
+      $("#image"+counter).click();
+    });
+
+//lines below make the slideshow automatic
+$("#bigImage").click(function(){
+  paused=!paused;
+});
+  setInterval(function(){
+    if(!paused){
+    $("#forward").click()
+  };
+},2000);
+
+</script>
+</body>
+</html>
